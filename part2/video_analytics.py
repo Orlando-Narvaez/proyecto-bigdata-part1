@@ -1,3 +1,4 @@
+import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import nltk
@@ -10,6 +11,9 @@ from PIL import Image, ImageTk
 
 nltk.download('stopwords')
 nltk.download('punkt')
+
+# Configurar salida en UTF-8
+sys.stdout.reconfigure(encoding='utf-8')
 
 # Cargar el archivo CSV
 video_data = pd.read_csv(r'C:/Users/ORLANDO/Documents/Git/BigData/ProyectoFinalPart1/part2/CAVideos.csv', nrows=5000)
