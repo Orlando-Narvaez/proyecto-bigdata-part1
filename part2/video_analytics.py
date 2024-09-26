@@ -16,13 +16,13 @@ nltk.download('punkt')
 sys.stdout.reconfigure(encoding='utf-8')
 
 # Cargar el archivo CSV
-video_data = pd.read_csv(r'C:/Users/ORLANDO/Documents/Git/BigData/ProyectoFinalPart1/part2/CAVideos.csv', nrows=5000)
+video_data = pd.read_csv(r'C:/Users/ORLANDO/Documents/Git/BigData/ProyectoFinalPart1-DanielEstebanTusarmaG-OrlandoNarvaezB/part2/CAVideos.csv', nrows=5000)
 
 # Filtrar títulos no válidos y duplicados
 video_data = video_data[video_data['title'].str.len() > 5].drop_duplicates(subset=['title'])
 
-# Extraer los títulos de los videos
-titles_list = video_data['title'].astype(str)
+# Extraer los títulos de los videos y los coloca en minuscula
+titles_list = video_data['title'].astype(str).str.lower()
 
 # Función para manejar la selección de un título en el combobox
 def on_title_select(event):
@@ -37,7 +37,7 @@ window.geometry("600x400")  # Ajustar el tamaño de la ventana según la imagen
 
 # Cargar imagen de fondo
 try:
-    image = Image.open(r'C:/Users/ORLANDO/Documents/Git/BigData/ProyectoFinalPart1/part2/background.jpg')  # Ruta absoluta corregida
+    image = Image.open(r'C:/Users/ORLANDO/Documents/Git/BigData/ProyectoFinalPart1-DanielEstebanTusarmaG-OrlandoNarvaezB/part2/background.jpg')  # Ruta absoluta corregida
     image = image.resize((600, 400), Image.LANCZOS)  # Redimensionar la imagen usando LANCZOS
     bg_image = ImageTk.PhotoImage(image)
     bg_label = tk.Label(window, image=bg_image)
